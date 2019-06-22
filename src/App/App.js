@@ -1,26 +1,26 @@
 import React from 'react';
 import './App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import dogData from './dog';
+import Dog from '../components/Dog/Dog';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className= 'btn btn-danger'>button</button>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    dog: [],
+  }
+
+  componentDidMount() {
+    this.setState({ dogs: dogData });
+  }
+
+  render() {
+    const { dogs } = this.state;
+
+    return (
+      <div className="App">
+      <Dog dogs={dogs} />
+      </div>
+    );
+  }
 }
 
 export default App;
