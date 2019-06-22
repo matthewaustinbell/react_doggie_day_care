@@ -1,24 +1,32 @@
 import React from 'react';
 import './App.scss';
 import dogData from './dog';
+import employeeData from './employees';
 import Dog from '../components/Dog/Dog';
+import Employee from '../components/Employee/Employee';
 
 class App extends React.Component {
   state = {
-    dog: [],
+    dogs: [],
+    employees: [],
   }
 
   componentDidMount() {
-    this.setState({ dogs: dogData });
+    this.setState({
+      dogs: dogData,
+      employees: employeeData,
+    });
   }
 
   render() {
     const { dogs } = this.state;
+    const { employees } = this.state;
 
     return (
       <div className="App">
       <Dog dogs={dogs} />
-      </div>
+      <Employee employees={employees} />
+    </div>
     );
   }
 }
