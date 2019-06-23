@@ -2,8 +2,8 @@ import React from 'react';
 import './App.scss';
 import dogData from './dog';
 import employeeData from './employees';
-import Dog from '../components/Dog/Dog';
-import Employee from '../components/Employee/Employee';
+import DogPen from '../components/DogPen/DogPen';
+import StaffRoom from '../components/StaffRoom/StaffRoom';
 
 class App extends React.Component {
   state = {
@@ -24,8 +24,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-      <Dog dogs={dogs} />
-      <Employee employees={employees} />
+      <DogPen dogs={dogs} />
+      <StaffRoom employees={employees} />
     </div>
     );
   }
