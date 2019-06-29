@@ -8,4 +8,4 @@ const dogShape = PropTypes.shape({
   description: PropTypes.string.isRequired,
 });
 
-export default dogShape;
+export default { dogShape };
