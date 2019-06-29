@@ -29,7 +29,7 @@ class Home extends React.Component {
       <div>Dogs</div>
       <DogPen dogs={dogs}/>
       <div>Employees</div>
-      {/* <StaffRoom employees={employees}/> */}
+      <StaffRoom employees={employees}/>
     </div>
     );
   }
