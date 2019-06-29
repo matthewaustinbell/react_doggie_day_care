@@ -7,13 +7,13 @@ import Dog from '../Dog/Dog';
 
 class DogPen extends React.Component {
   static propTypes = {
-    dog: PropTypes.arrayOf(dogShape.dogShape),
+    dogs: PropTypes.arrayOf(dogShape.dogShape),
   }
 
   render() {
     const { dogs } = this.props;
-    const makeDogs = dogs.map(dog => (
-      <Dog key={dog.id} dog={dog} />
+    const makeDogs = dogs.map(d => (
+      <Dog key={d.id} dog={d} />
     ));
 
     return (

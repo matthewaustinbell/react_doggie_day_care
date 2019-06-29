@@ -1,26 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import employeeShape from '../../helpers/propz/employeeShape';
-import './StaffRoom.scss';
-import Employee from '../Employee/Employee';
+// import React from 'react';
 
-class StaffRoom extends React.Component {
-  static propTypes = {
-    employees: PropTypes.arrayOf(employeeShape.employeeShape),
-  }
+// import './StaffRoom.scss';
 
-  render() {
-    const { employees } = this.props;
-    const makeEmployees = employees.map(employee => (
-      <Employee key={employee.id} employee={employee} />
-    ));
+// import Employee from '../Employee/Employee';
+// // import employeeData from '../../helpers/data/';
 
-    return (
-      <div className="StaffRoom d-flex flex-row flex wrap justify-content-around">
-        { makeEmployees }
-      </div>
-    );
-  }
-}
+// class StaffRoom extends React.Component {
+//   state = {
+//     employees: [],
+//   }
 
-export default StaffRoom;
+//   componentDidMount() {
+//     employeeData.getemployees()
+//       .then(employees => this.setState({ employees }))
+//       .catch(err => console.error('no eomployees available', err));
+//   }
+
+//   render() {
+//     const employeeComponents = this.state.employees.map(employee => (
+//       <Employee key={employee.id} employee={employee} />
+//     ));
+//     return (
+//       <div className="StaffRoom d-flex flex-wrap justify-content around">
+//       {employeeComponents}
+//       </div>
+//     );
+//   }
+// }
+
+// export default StaffRoom;
