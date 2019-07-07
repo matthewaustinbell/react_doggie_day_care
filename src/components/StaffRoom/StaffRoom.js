@@ -13,7 +13,7 @@ class StaffRoom extends React.Component {
   componentDidMount() {
     employeeData.getemployees()
       .then(employees => this.setState({ employees }))
-      .catch(err => console.error('no eomployees available', err));
+      .catch(err => console.error('no employees available', err));
   }
 
   render() {
