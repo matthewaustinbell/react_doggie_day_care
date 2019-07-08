@@ -1,5 +1,5 @@
 import React from 'react';
-import dogShape from '../../helpers/propz/dogShape';
+import dogShape from '../../../helpers/propz/dogShape';
 import './Dog.scss';
 
 class Dog extends React.Component {
