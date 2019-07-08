@@ -1,27 +1,52 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
-import dogShape from '../../helpers/propz/dogShape';
+
 import './DogPen.scss';
+
+import dogData from '../../helpers/data/dogData';
 import Dog from '../Dog/Dog';
 
 class DogPen extends React.Component {
-  static propTypes = {
-    dogs: PropTypes.arrayOf(dogShape.dogShape),
+  state = {
+    dogs: [],
+  }
+
+  componentDidMount() {
+    dogData.getDogs()
+      .then(dogs => this.setState({ dogs }))
+      .catch(err => console.error('no dogs available', err));
   }
 
   render() {
-    const { dogs } = this.props;
-    const makeDogs = dogs.map(d => (
-      <Dog key={d.id} dog={d} />
+    const dogComponents = this.state.dogs.map(dog => (
+      <Dog key={dog.id} dog={dog} />
     ));
-
     return (
-      <div className="DogPen d-flex flex-row flex-wrap justify-content-around">
-        {makeDogs}
+      <div className="DogPen d-flex flex-wrap">
+        {dogComponents}
       </div>
     );
   }
 }
 
 export default DogPen;
+
+// import React from 'react';
+// // eslint-disable-next-line import/no-extraneous-dependencies
+// import './DogPen.scss';
+// import Dog from '../Dog/Dog';
+
+// class DogPen extends React.Component {
+//   render() {
+//     const dogComponents = this.props.dogs.map(d => (
+//       <Dog key={d.id} dog={d} />
+//     ));
+
+//     return (
+//       <div className="DogPen d-flex flex-row flex-wrap justify-content-around">
+//         {dogComponents}
+//       </div>
+//     );
+//   }
+// }
+
+// export default DogPen;

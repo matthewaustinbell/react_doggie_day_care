@@ -4,32 +4,31 @@ import './Home.scss';
 
 import DogPen from '../DogPen/DogPen';
 import StaffRoom from '../StaffRoom/StaffRoom';
-// import walkData from '../../helpers/data/walkData';
-// import Walk from '../Walk/Walk';
-
-import myDogs from '../../App/dog';
-import myEmployees from '../../App/employees';
+import walkData from '../../helpers/data/walkData';
+import Walk from '../Walk/Walk';
 
 class Home extends React.Component {
   state = {
-    dogs: [],
-    employees: [],
+    walks: [],
   }
 
   componentDidMount() {
-    this.setState({ dogs: myDogs });
-    this.setState({ employees: myEmployees });
+    walkData.getWalks()
+      .then(walks => this.setState({ walks }))
+      .catch(err => console.error('no walks available', err));
   }
 
   render() {
-    const { dogs } = this.state;
-    const { employees } = this.state;
+    const walkComponents = this.state.walks.map(walk => (
+      <Walk key={walk.id} walk={walk} />
+    ));
     return (
       <div className="Home">
-      <div>Dogs</div>
-      <DogPen dogs={dogs}/>
-      <div>Employees</div>
-      {/* <StaffRoom employees={employees}/> */}
+      <div><h2>Dogs</h2></div>
+      <DogPen />
+       <div><h2>Employees</h2></div>
+      <StaffRoom />
+      <div className="row">{walkComponents}</div>
     </div>
     );
   }

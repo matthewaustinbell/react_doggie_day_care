@@ -15,8 +15,6 @@ fbConnection();
 class App extends React.Component {
   state = {
     authed: false,
-    // dogs: [],
-    // employees: [],
   }
 
   componentDidMount() {
