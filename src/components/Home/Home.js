@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
 import React from 'react';
 import {
-  Button, Form, FormGroup, Label, Input, FormText, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
+  Button, Form, FormGroup, Label, Input, FormText,
+  Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
+  UncontrolledDropdown,
 } from 'reactstrap';
 import './Home.scss';
 
@@ -64,20 +66,20 @@ class Home extends React.Component {
         <Walk key={walk.id} walk={walk} deleteWalks={this.deleteWalks} />
       ));
       const dogOptions = this.state.dogs.map(dog => (
-        <DropdownItem key={dog.id} name={dog.name} onCLick={this.getDogName}>{dog.name}</DropdownItem>
+        <DropdownItem key={dog.id} name={dog.name} onClick={this.getDogName}>{dog.name}</DropdownItem>
       ));
       const employeeOptions = this.state.employees.map(employee => (
         <DropdownItem key={employee.id}>{employee.name}</DropdownItem>
       ));
       return (
         <div className="Home">
-        <Dropdown isOpen={this.state.dogsDropdownOpen} onClick= {this.toggle}>
+        <UncontrolledDropdown isOpen={this.state.dogsDropdownOpen} onClick= {this.toggle}>
         <DropdownToggle caret>{this.state.dogValue}</DropdownToggle>
         <DropdownMenu>
 
             {dogOptions}
         </DropdownMenu>
-        </Dropdown>
+        </UncontrolledDropdown>
         <div><h2>Dogs</h2></div>
         <DogPen dogs={ dogs }/>
         <div><h2>Employees</h2></div>
